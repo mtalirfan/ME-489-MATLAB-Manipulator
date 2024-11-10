@@ -6,4 +6,4 @@
 
 ME-489 Robotics and Automation Assignment 1
 
-This repository contains the MATLAB and Python code for the first assignment of ME-489 Robotics and Automation course. The assignment is about the forward kinematics of a robot manipulator. The task is to build a manipulator with a number of link lengths, and find workspace and different configurations of the model.
+This repository contains code for the first assignment of ME-489 Robotics and Automation course. The assignment is about the forward kinematics of a robot manipulator. The task is to build a manipulator with a number of links, and find workspace and different configurations of the model.
