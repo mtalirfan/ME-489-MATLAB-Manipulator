@@ -1,0 +1,38 @@
+% DH Parameters
+
+% d
+d1 = 0;
+d2 = 0;
+d3 = 0.15;
+d4 = 0.4318;
+d5 = 0;
+d6 = 0;
+
+% a
+a1 = 0;
+a2 = 0.4318;
+a3 = 0.0203;
+a4 = 0;
+a5 = 0;
+a6 = 0;
+
+% alpha
+al1 = pi/2;
+al2 = 0;
+al3 = -pi/2;
+al4 = pi/2;
+al5 = -pi/2;
+al6 = 0;
+
+L1=Link([0,d1,a1,al1,0,0], 'modified');  %% theta, d, a, alpha, 0 for revolute, variable (revolute and ) ofset 
+L1.qlim = [deg2rad(-160) deg2rad(160)];
+L2=Link([0,d2,a2,al2,0,0], 'modified');
+L2.qlim = [deg2rad(-45) deg2rad(225)];
+L3=Link([0,d3,a3,al3,0,0], 'modified');
+L3.qlim = [deg2rad(-225) deg2rad(45)];
+L4=Link([0,d4,a4,al4,0,0], 'modified');
+L4.qlim = [deg2rad(-110) deg2rad(170)];
+L5=Link([0,d5,a5,al5,0,0], 'modified');
+L5.qlim = [deg2rad(-100) deg2rad(100)];
+L6=Link([0,d6,a6,al6,0,0], 'modified');
+L6.qlim = [deg2rad(-266) deg2rad(266)];
