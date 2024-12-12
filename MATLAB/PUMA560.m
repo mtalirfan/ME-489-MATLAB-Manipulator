@@ -84,7 +84,7 @@ q_ik = puma560.ikine(T, q0);
 
 
 fkine_for_ikine = T;
-fkine_of_ikine = puma560.fkine(q_ikine);
+fkine_of_ikine = puma560.fkine(q_ik);
 
 disp("fkine config q_fk (ru)");
 disp(ru);
@@ -92,11 +92,11 @@ disp("exact solution q_ik_exact (rd)");
 disp(rd);
 disp("initial guess q0 (rd + 0.5)");
 disp(q0);
-disp("iterated solution q_ik* (rd*)");
+disp("iterated solution q_ik (rd*)");
 disp(q_ik);
 disp("transformation matrix of fkine config q_fk (ru)");
 disp(fkine_for_ikine);
-disp("transformation matrix of ikine solution q_ik* (rd*)");
+disp("transformation matrix of ikine solution q_ik (rd*)");
 disp(fkine_of_ikine);
 
 
@@ -107,7 +107,7 @@ puma560.plot(qrt_ikine, 'movie', 'PUMA560 IK.gif');
 
 % Plotting Workspace (ChatGPT)
 
-n = 5; % computation time gets massive very quickly as n is increased
+n = 20; % 5, computation time gets massive very quickly as n is increased
 q1 = linspace(L(1).qlim(1), L(1).qlim(2), n);
 q2 = linspace(L(2).qlim(1), L(2).qlim(2), n);
 q3 = linspace(L(3).qlim(1), L(3).qlim(2), n);
@@ -120,19 +120,30 @@ workspace_points = [];
 for theta1 = q1
     for theta2 = q2
         for theta3 = q3
-            for theta4 = q4
-                for theta5 = q5
-                    for theta6 = q6
-                        q = [theta1, theta2, theta3, theta4, theta5, theta6];
-                        T = puma560.fkine(q);
-                        pos = T.t;
-                        workspace_points = [workspace_points; pos'];
-                    end
-                end
-            end
+            q = [theta1, theta2, theta3, 0, 0, 0];
+            T = puma560.fkine(q);
+            pos = T.t;
+            workspace_points = [workspace_points; pos'];
         end
     end
 end
+
+% for theta1 = q1
+%     for theta2 = q2
+%         for theta3 = q3
+%             for theta4 = q4
+%                 for theta5 = q5
+%                     for theta6 = q6
+%                         q = [theta1, theta2, theta3, theta4, theta5, theta6];
+%                         T = puma560.fkine(q);
+%                         pos = T.t;
+%                         workspace_points = [workspace_points; pos'];
+%                     end
+%                 end
+%             end
+%         end
+%     end
+% end
 
 % Plot workspace points
 figure;
