@@ -1,11 +1,11 @@
 % DH (Denavit–Hartenberg) Table for PUMA560
-%             theta  d      a      alpha  R/P    offset
-L(1) =  Link([0      0      0      pi/2   0      0]);
-L(2) =  Link([0      0      0.4318 0      0      0]);
-L(3) =  Link([0      0.15   0.0203 -pi/2  0      0]);
-L(4) =  Link([0      0.4318 0      pi/2   0      0]);
-L(5) =  Link([0      0      0      -pi/2  0      0]);
-L(6) =  Link([0      0      0      0      0      0]);
+%             theta  d      a      alpha 
+L(1) =  Link([0      0      0      pi/2   ]);
+L(2) =  Link([0      0      0.4318 0      ]);
+L(3) =  Link([0      0.15   0.0203 -pi/2  ]);
+L(4) =  Link([0      0.4318 0      pi/2   ]);
+L(5) =  Link([0      0      0      -pi/2  ]);
+L(6) =  Link([0      0      0      0      ]);
 
 % Joint Angle Limits qlim
 L(1).qlim = deg2rad([-160 160]);
